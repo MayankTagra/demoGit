@@ -117,47 +117,6 @@ public void Globe() throws InterruptedException
 
 
 @Test()
-public void ContactUsSelect1() throws InterruptedException
-	{	
-		test=extent.createTest("Contact Us Select1");
-		WebDriver driver=Login();
-		driver.get(url());
-		Thread.sleep(10000);
-		
-		Actions builder=new Actions(driver);
-		builder.moveToElement(driver.findElement(By.xpath("//div[@class='utility-bar']//a[@href='#']"))).build().perform();
-		driver.findElement(By.xpath("//div[@class='liveagent-data']/following-sibling::a")).click();
-		Thread.sleep(30000);
-		
-		driver.findElement(By.id("FirstName")).sendKeys("Mayank");
-		driver.findElement(By.id("LastName")).sendKeys("Tagra");
-		driver.findElement(By.id("Email")).sendKeys("mayanktagra1@gmail.com");
-		driver.findElement(By.id("Phone")).sendKeys("9898989898");
-		driver.findElement(By.xpath("//div[@class='buttonWrapper embeddedServiceSidebarForm']//span")).click();
-		
-		Thread.sleep(60000);
-		//Actions builder=new Actions(driver);
-		try
-		{
-		builder.moveToElement(driver.findElement(By.xpath("//textarea[@class='chasitorText  textarea']"))).sendKeys("Hello")
-		.sendKeys(Keys.ENTER).build().perform();
-		Thread.sleep(5600);
-		builder.moveToElement(driver.findElement(By.xpath("//textarea[@class='chasitorText  textarea']"))).sendKeys("Want to know About SalesForce")
-		.sendKeys(Keys.ENTER).build().perform();
-		
-		}
-		catch(Exception e)
-		{
-			System.out.println("Chat Page Not Loaded");
-			driver.findElement(By.xpath("//button[@class='waitingCancelChat uiButton--inverse uiButton embeddedServiceSidebarButton']")).click();
-			driver.findElement(By.xpath("//div[@class='dialogButtonContainer']//button[1]")).click();
-		}
-		
-		
-		driver.close();
-}
-
-@Test()
 public void ContactUsSelect2() throws InterruptedException
 {	
 	test=extent.createTest("Contact Us Select 2");
