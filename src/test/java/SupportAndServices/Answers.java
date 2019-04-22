@@ -11,32 +11,30 @@ public class Answers extends BaseTest{
 	public void SelectAllTopics() throws InterruptedException
 	{	test=extent.createTest("Select All Topics");
 		WebDriver driver=Login();
+
 		driver.get("https://help.salesforce.com/search?sfContext#q=live%20agent&f:@sflanguage=%5Ben_US%5D&firstQueryMeta=%5Bobject%20Object%5D");
-		driver.findElement(By.xpath("//div[@id='nav1']//ul[@id='nav1_ul']")).findElements(By.tagName("li")).get(1).click();
+		Thread.sleep(4500);
+		driver.findElement(By.linkText("Home")).click();
+		Thread.sleep(4500);
+		driver.findElement(By.linkText("Answers")).click();
+		Thread.sleep(4500);
+		driver.findElement(By.linkText("Help")).click();
 		Thread.sleep(4500);
 		
-		int c=driver.findElement(By.xpath("//div[@id='ext-gen25']//ul")).findElements(By.tagName("li")).size();
-		System.out.println(c);
+		driver.findElement(By.linkText("Events")).click();
+		Thread.sleep(4500);
+		driver.findElement(By.linkText("Collaboration")).click();
+		Thread.sleep(4500);
+		driver.navigate().back();
+		driver.findElement(By.linkText("Ideas")).click();
+		Thread.sleep(4500);
+		driver.findElement(By.linkText("Featured Groups")).click();
+		Thread.sleep(4500);
+		driver.findElement(By.linkText("Known Issues")).click();
+		Thread.sleep(4500);
 		
-		for(int i=0;i<c;i++)
-		{
-			try
-			{
-				driver.findElement(By.xpath("//div[@id='ext-gen25']//ul")).findElements(By.tagName("li")).get(i).click();
-				Thread.sleep(4500);
-				
-			}
-			catch(Exception e)
-			{
-				
-			}
-		}
 		
-		Thread.sleep(4600);
-			driver.findElement(By.xpath("//a[@class='btn btn-rss button-block']")).click();
-			Thread.sleep(3400);
-			driver.navigate().back();
-			Thread.sleep(4500);
+		driver.close();
 			
 	}
 	
