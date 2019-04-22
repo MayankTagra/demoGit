@@ -184,78 +184,102 @@ public void LoginClick() throws InterruptedException
 {	
 	test=extent.createTest("Login Click");
 	WebDriver driver=Login();
-	driver.get(url());
-	Actions builder=new Actions(driver);
-	builder.moveToElement(driver.findElement(By.xpath("//div[@class='global-nav-login-flydown global-login']"))).build().perform();
-	int count=driver.findElement(By.xpath("//div[@class='col text-left col-sm-4 col-md-4 col-lg-4']//div[@class='footer-social-links']"))
-			.findElements(By.tagName("a")).size();
+	//driver.get(url());
+	
+	driver.get("https://www.salesforce.com/in/cro/index-smb/?ir=1");
+		Actions builder=new Actions(driver);
+		ArrayList<String> al=new ArrayList();
+		
+		
+		//    xpath for login   //div[@class='global-nav-login-flydown global-login']
+
+		builder.moveToElement(driver.findElement(By.xpath("//div[@class='global-nav-login-flydown global-login']")))
+		.build().perform();
+		
+		Thread.sleep(4500);
+		
+	int count=	driver.findElement(By.xpath("//div[@class='col text-left col-sm-4 col-md-4 col-lg-4']//div[@class='footer-social-links']"))
+		.findElements(By.tagName("a")).size();
 	System.out.println(count);
+	
 	
 	driver.findElement(By.xpath("//div[@class='col text-left col-sm-4 col-md-4 col-lg-4']//div[@class='footer-social-links']"))
 	.findElements(By.tagName("a")).get(0).click();
+	Thread.sleep(2300);
 	Set<String> win=driver.getWindowHandles();
 	Iterator<String> itr=win.iterator();
-	ArrayList<String> al=new ArrayList();
+	
+		//driver.close();
+		//Lower xpath //div[@class='col text-left col-sm-4 col-md-4 col-lg-4']//div[@class='footer-social-links']
+		
 	while(itr.hasNext())
 	{
 		al.add(itr.next());
-		
 	}
+	
 	driver.switchTo().window(al.get(1));
-	Thread.sleep(3400);
+	Thread.sleep(4500);
 	driver.close();
 	driver.switchTo().window(al.get(0));
-	Thread.sleep(3000);
+	
+	al.clear();
 	
 	driver.findElement(By.xpath("//div[@class='col text-left col-sm-4 col-md-4 col-lg-4']//div[@class='footer-social-links']"))
 	.findElements(By.tagName("a")).get(1).click();
-	
-	
+	Thread.sleep(2300);
 	Set<String> win1=driver.getWindowHandles();
 	Iterator<String> itr1=win1.iterator();
-	al.clear();
 	while(itr1.hasNext())
 	{
 		al.add(itr1.next());
+		
 	}
+
 	driver.switchTo().window(al.get(1));
-	Thread.sleep(3400);
+	Thread.sleep(4500);
 	driver.close();
 	driver.switchTo().window(al.get(0));
-	Thread.sleep(3000);
+	al.clear();
 	
 	driver.findElement(By.xpath("//div[@class='col text-left col-sm-4 col-md-4 col-lg-4']//div[@class='footer-social-links']"))
 	.findElements(By.tagName("a")).get(2).click();
-	
-	
+	Thread.sleep(2400);
 	Set<String> win2=driver.getWindowHandles();
 	Iterator<String> itr2=win2.iterator();
-	al.clear();
 	while(itr2.hasNext())
 	{
 		al.add(itr2.next());
 	}
+	
 	driver.switchTo().window(al.get(1));
-	Thread.sleep(3400);
+	Thread.sleep(4500);
 	driver.close();
+	
 	driver.switchTo().window(al.get(0));
-	Thread.sleep(3000);
+	al.clear();
 	
 	driver.findElement(By.xpath("//div[@class='col text-left col-sm-4 col-md-4 col-lg-4']//div[@class='footer-social-links']"))
 	.findElements(By.tagName("a")).get(3).click();
+	Thread.sleep(4500);
 	
 	Set<String> win3=driver.getWindowHandles();
 	Iterator<String> itr3=win3.iterator();
-	al.clear();
+	
 	while(itr3.hasNext())
 	{
 		al.add(itr3.next());
 	}
+		
 	driver.switchTo().window(al.get(1));
-	Thread.sleep(3400);
+	Thread.sleep(3500);
 	driver.close();
 	driver.switchTo().window(al.get(0));
-	Thread.sleep(3000);
+	al.clear();
+	Thread.sleep(1000);
+	
+	driver.close();
+	
+	
 	
 
 	
