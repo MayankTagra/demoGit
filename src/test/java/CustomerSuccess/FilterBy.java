@@ -17,7 +17,7 @@ public class FilterBy extends BaseTest {
 			WebDriver driver=Login();
 			driver.get("https://www.salesforce.com/in/customer-success-stories/");
 			JavascriptExecutor js=(JavascriptExecutor)driver;
-			js.executeScript("windows.scrollBy(0,2000)");
+			js.executeScript("window.scrollBy(0,2000)");
 			driver.findElement(By.xpath("//h4[@data-target='#collapse_T']")).click();
 			Thread.sleep(50000);
 			driver.findElement(By.xpath("//div[@id='collapse_T']//li[1]//a")).click();
