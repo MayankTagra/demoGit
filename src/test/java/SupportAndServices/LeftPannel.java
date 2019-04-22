@@ -148,7 +148,7 @@ public class LeftPannel extends BaseTest {
 	}
 	@Test(enabled=true)
 	public void TopicsSelectAll() throws InterruptedException
-	{
+	{	test=extent.createTest("Topics Select All");
 		WebDriver driver=Login();
 		driver.get("https://help.salesforce.com/search?sfContext#q=live%20agent&f:@sflanguage=%5Ben_US%5D&firstQueryMeta=%5Bobject%20Object%5D");
 		Thread.sleep(4500);
