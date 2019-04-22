@@ -52,9 +52,9 @@ public class Products extends BaseTest{
 		System.out.println("Inside Products");
 		driver.findElement(By.xpath("//div[@class='cardComponent parbase section']//div[@data-href='/in/products/analytics-cloud/overview/?d=70130000000lzYiAAI']"))
 		.click();
-		Thread.sleep(3400);
+		Thread.sleep(9000);
 		driver.navigate().back();
-		Thread.sleep(3400);
+		Thread.sleep(5400);
 		driver.findElement(By.xpath("//div[@class='cardComponent parbase section']//div[@data-href='/in/solutions/industries/?d=cta-industries-more']"))
 		.click();
 		Thread.sleep(3400);
