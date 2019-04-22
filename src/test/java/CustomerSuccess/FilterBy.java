@@ -157,16 +157,16 @@ public class FilterBy extends BaseTest {
 		{	
 			test=extent.createTest("ShowMore");
 			WebDriver driver=Login();
-			driver.get("https://www.salesforce.com/in/customer-success-stories/");
-			JavascriptExecutor js=(JavascriptExecutor)driver;
-			js.executeScript("window.scrollBy(0,4500)");
-			Thread.sleep(10000);
-			
-			//driver.findElement(By.xpath("//a[@href='/in/customer-success-stories/#_filter,3']")).click();
-			driver.findElement(By.xpath("//div[@class='filters-view-more col-xs-12']//a[1]")).click();
-			Thread.sleep(10000);
-			
-			driver.close();
+		driver.get("https://www.salesforce.com/in/customer-success-stories/");
+		Thread.sleep(4500);
+		
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,4500)");
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//div[@class='filters-view-more col-xs-12']//a[1]")).click();
+		Thread.sleep(5600);
+		driver.close();
+	
 		}
 		@Test()
 		public void SeeTheStory() throws InterruptedException
