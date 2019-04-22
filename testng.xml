@@ -16,7 +16,6 @@
       <class name="com.mycompany.app.MobileTest"/>
       <class name="CustomerSuccess.SortBy"/>
       <class name="Products.Products"/>
-      <class name="HomePage.MidContent"/>
       <class name="SupportAndServices.Answers"/>
       <class name="HomePage.Footer"/>
     </classes>
