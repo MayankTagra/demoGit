@@ -34,7 +34,7 @@ public class BaseTest{
 	@BeforeSuite
 	public void Setup()
 	{
-		htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"test-output/Salesforce.html");
+		htmlReporter =new ExtentHtmlReporter("SalesForce.html");
 		extent=new ExtentReports();
 		extent.attachReporter(htmlReporter);
 
