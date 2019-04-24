@@ -95,24 +95,39 @@ public void Globe() throws InterruptedException
 {	
 	test=extent.createTest("Globe");
 	WebDriver driver=Login();
-	driver.get(url());
-	//driver.findElement(By.xpath)
-	Actions builder=new Actions(driver);
-	
-	int count=driver.findElements(By.xpath("//div[@class='utility-bar']//ul[@class='generic-links  ']//li")).size();
-	System.out.println(count);
-	for(int i=0;i<count;i++)
-	{
-		//builder.movetoElement(driver.findElement(By.xpath("//div[@class='utility-bar']//div[@class='region-selector_button']"))).get(i).click();
-		builder.moveToElement(driver.findElement(By.xpath("//div[@class='utility-bar']//div[@class='region-selector_button']"))).build().perform();
-		driver.findElements(By.xpath("//div[@class='utility-bar']//ul[@class='generic-links  ']//li")).get(i).click();
-		Thread.sleep(5000);
-		driver.navigate().back();
-		Thread.sleep(5000);
+	//driver.get(url());
+driver.get("https://www.salesforce.com/in/cro/index-smb/?ir=1");
+		Thread.sleep(4500);
 		
+		Actions builder=new Actions(driver);
+		builder.moveToElement(driver.findElement(By.xpath("//div[@class='utility-bar']//div[@class='region-selector_button']")))
+		.build().perform();
+		Thread.sleep(3400);
 		
-	}
-	driver.close();
+		int count=driver.findElement(By.xpath("//div[@class='utility-bar']//div[@class='row columns-wrapper ']"))
+				.findElements(By.tagName("a")).size();
+		
+		System.out.println(count);
+		System.out.println();
+		
+		for(int i=0;i<count;i++)
+		{
+			builder.moveToElement(driver.findElement(By.xpath("//div[@class='utility-bar']//div[@class='region-selector_button']")))
+			.build().perform();
+			Thread.sleep(200);
+			
+			driver.findElement(By.xpath("//div[@class='utility-bar']//div[@class='row columns-wrapper ']"))
+			.findElements(By.tagName("a")).get(i).click();
+			System.out.println(i);
+			System.out.println();
+			Thread.sleep(3400);
+			//Wait time 
+			
+
+		}
+		Thread.sleep(4500);
+		driver.close();
+
 }
 
 
