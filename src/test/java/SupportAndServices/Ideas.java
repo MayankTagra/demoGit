@@ -35,24 +35,37 @@ public class Ideas extends BaseTest{
 	{	
 		test=extent.createTest("Status Filter Dropdown");
 		WebDriver driver=Login();
-		driver.get("https://success.salesforce.com/ideaSearch?sort=2&filter=Delivered+in+Winter+17");
+				driver.get("https://success.salesforce.com/ideaSearch");
+		Thread.sleep(4500);
+		//driver.findElement(By.xpath("//button[@id='idea_status_filter_opener']")).click();
 		
-		Thread.sleep(3200);
-		int count=driver.findElement(By.xpath("//div[@class='overlay-menu overlay-menu-select'][2]//ul[@class='ul-reset']"))
+		int count=driver.findElement(By.xpath("//div[@class='overlay-menu overlay-menu-select'][2]//ul"))
 				.findElements(By.tagName("li")).size();
 		System.out.println(count);
-		Thread.sleep(4000);
+		System.out.println();
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		Actions builder=new Actions(driver);
 		
-
-		for(int i=1;i<23;i++)
+		for(int i=2;i<=count;i++)
 		{
-			driver.findElement(By.xpath("//button[@id='idea_status_filter_opener']")).click();
-			Thread.sleep(5400);
-			driver.findElement(By.xpath("//div[@class='overlay-menu overlay-menu-select'][2]//li["+i+"]")).click();
+/*			driver.findElement(By.xpath("//button[@id='idea_status_filter_opener']")).click();
+*/
+			
+			builder.moveToElement(driver.findElement(By.xpath("//button[@id='idea_status_filter_opener']")))
+			.click().build().perform();
+			
 			Thread.sleep(3400);
-
+			builder.moveToElement(driver.findElement(By.xpath("//div[@class='overlay-menu overlay-menu-select'][2]//ul//li["+i+"]")))
+			.click().build().perform();
+			System.out.println(i);
+			Thread.sleep(5600);
+		//	js.executeScript("window.scrollBy(0,50)");
+			
+			//wait time if needed
+			
 		}
-		
+
+		Thread.sleep(6700);
 		driver.close();
 	}
 	@Test()
