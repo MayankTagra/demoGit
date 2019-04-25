@@ -173,23 +173,31 @@ public class FilterBy extends BaseTest {
 		{	
 			test=extent.createTest("See the Story");
 			WebDriver driver=Login();
-			driver.get("https://www.salesforce.com/in/customer-success-stories/");
-			JavascriptExecutor js=(JavascriptExecutor)driver;
-			js.executeScript("window.scrollBy(0,200)");
-			driver.findElement(By.xpath("//div[@class='btn-container ']//a[@href='/in/customer-success-stories/inmobi/']")).click();
-			Thread.sleep(6000);
-			driver.navigate().back();
-			Thread.sleep(6000);
-			driver.findElement(By.xpath("//div[@class='btn-container ']//a[@href='/in/customer-success-stories/y-axis/']")).click();
-			Thread.sleep(6000);
-			driver.navigate().back();
-			Thread.sleep(6000);
-			driver.findElement(By.xpath("//div[@class='btn-container ']//a[@href='/in/customer-success-stories/urban-ladder/']")).click();
-			Thread.sleep(6000);
-			driver.navigate().back();
-			Thread.sleep(6000);
-
-			driver.close();
+		driver.get("https://www.salesforce.com/in/cro/index-smb/?ir=1#");
+		Thread.sleep(5600);
+		driver.findElement(By.linkText("Customer Success")).click();
+		Thread.sleep(4500);
+		
+	
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,1500)");
+		
+		Thread.sleep(3400);
+		
+		driver.findElement(By.xpath("//h4[@data-target='#collapse_T']")).click();
+		Thread.sleep(10000);
+		driver.findElement(By.xpath("//div[@id='collapse_T']//li[1]//a")).click();
+		Thread.sleep(10000);
+		driver.findElement(By.xpath("//div[@id='collapse_T']//li[2]//a")).click();
+		Thread.sleep(10000);
+		driver.findElement(By.xpath("//div[@id='collapse_T']//li[3]//a")).click();
+		Thread.sleep(10000);
+		driver.findElement(By.xpath("//h4[@data-target='#collapse_T']")).click();
+		System.out.println("Topics Done");
+		Thread.sleep(20000);
+		driver.close();
+		
+		
 			
 
 			
