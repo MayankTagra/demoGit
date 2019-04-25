@@ -199,26 +199,46 @@ driver.get("https://www.salesforce.com/in/cro/index-smb/?ir=1");
 	{	
 		test=extent.createTest("Select Random");
 		WebDriver driver=Login();
-		driver.get("https://help.salesforce.com/search?sfContext#q=live%20agent&f:@sflanguage=%5Ben_US%5D&firstQueryMeta=%5Bobject%20Object%5D");
+		driver.get("https://www.salesforce.com/in/cro/index-smb/?ir=1");
+		Thread.sleep(3400);
+		driver.findElement(By.linkText("Support & Services")).click();
+		Thread.sleep(5600);
+		Actions builder=new Actions(driver);
+		builder.moveToElement(driver.findElement(By.xpath("//div[@class='magic-box-input']"))).sendKeys("Live").build().perform();
+		Thread.sleep(3400);
+		builder.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
 		Thread.sleep(4500);
+		
+		try
+		{
+			driver.findElement(By.xpath("//button[@class='toast-close-button']")).click();
+			Thread.sleep(4500);
+			System.out.println("clicked Inside Alert");
+		}
+		catch(Exception e)
+		{
+			System.out.println("Alert Message not found");
+		}
+		
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,500)");
 		
-		driver.findElement(By.xpath("//div[@id='TopicFacet']//li[@data-value='Search']//div[@class='coveo-facet-value-checkbox']")).click();
-		
+		driver.findElement(By.xpath("//div[@id='TopicFacet'][1]//li[@data-value='Search']//div[@class='coveo-facet-value-checkbox']"))
+		.click();
 		Thread.sleep(4500);
 		
-		Actions builder=new Actions(driver);
 		builder.moveToElement(driver.findElement(By.xpath("//ul[@class='coveo-facet-search-results']"))).sendKeys(Keys.ARROW_DOWN)
 		.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
 		
-		Thread.sleep(3200);
+		Thread.sleep(3400);
 		driver.findElement(By.xpath("//div[@id='TopicFacet']//li[@data-value='Search']//div[@class='coveo-facet-value-checkbox']")).click();
 		Thread.sleep(3100);
 		builder.moveToElement(driver.findElement(By.xpath("//ul[@class='coveo-facet-search-results']")))
 		.sendKeys(Keys.ENTER).build().perform();
 		Thread.sleep(4500);
 		driver.close();
+		
+			
 		
 			
 	}
