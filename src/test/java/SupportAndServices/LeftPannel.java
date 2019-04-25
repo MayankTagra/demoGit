@@ -17,7 +17,7 @@ public class LeftPannel extends BaseTest {
 	{	
 		test=extent.createTest("Content type");
 		WebDriver driver=Login();
-		driver.get("https://www.salesforce.com/in/?ir=1");
+driver.get("https://www.salesforce.com/in/cro/index-smb/?ir=1");
 		Thread.sleep(4500);
 		driver.findElement(By.linkText("Support & Services")).click();
 		Thread.sleep(3400);
@@ -28,7 +28,16 @@ public class LeftPannel extends BaseTest {
 		builder.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
 		Thread.sleep(4500);
 		
-		
+		try
+		{
+			driver.findElement(By.xpath("//button[@class='toast-close-button']")).click();
+			Thread.sleep(4500);
+			System.out.println("Alert Found and Removed");
+		}
+		catch(Exception e)
+		{
+			System.out.println("No alert Message Found");
+		}
 	
 		driver.manage().window().maximize();
 		
